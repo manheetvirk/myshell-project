@@ -1,0 +1,16 @@
+# Compiled binary
+myshell
+
+# Log files
+myshell.log
+
+# Object files
+*.o
+
+# Vim temporary / swap files
+*.swp
+*.swo
+*.swx
+
+# Backup files
+*~

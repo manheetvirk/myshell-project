@@ -50,6 +50,10 @@ void execute_command(Command *cmd, char *raw) {
 
         if ((*cmd).infile) {
             int fd = open((*cmd).infile, O_RDONLY);
+	    if (fd < 0) {
+		    perror((*cmd).infile);
+		    exit(1);
+        	}
             dup2(fd, STDIN_FILENO);
             close(fd);
         }

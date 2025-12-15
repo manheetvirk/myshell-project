@@ -1,35 +1,76 @@
 # myshell-project
-Authors: Manheet Kaur Virk,
-        Jayla Porter,
-        Dapinderdeep Kaur
+**Authors:** Manheet Kaur Virk,
+          Dapinderdeep Kaur,
+        Jayla Porter
         
-Course: CS 12600 - 001 System Programming in C
-# Overview
-A minimal Unix shell built in C for academic use. This program provides core shell function without fully re-implenting Bash.
+        
+**Course:** CS 12600 - 001 System Programming in C
 
-The program demonstrates multiple programming concepts such as external commands, I/O redirection, pipes, background jobs, built-ins (cd, exit), signal handling, 
-and command logging. Designed for Valgrind clean and automated testing.
+**Semester:** Fall 2025
+# Overview
+This project implements a small Unix shell in C. It handles external commands, redirection, pipes, background processes, and built‑ins like cd and exit. It also works well with signal handling for SIGINT and SIGCHLD, along with command logging. The shell uses dynamic memory and passes  Valgrind with no leaks.
 
 ## Features
-Execution of external commands through fork and execvp. Foreground and background job control. Built in commands such as cd[path], exit and quit. Input and output redirection. Single pipeline support. Signal handling. Command logging to myshell.log using system call write(). Dynamic memory allocation through use of malloc() and free(). Multi-file project structure through Makefile support. Clean execution using Valgrind to prevent memory leaks or invalid access. 
+- Runs external commands using fork() and execvp()
+- Supports both foreground and background jobs
+- Includes built‑in commands: cd, exit, and quit
+- Handles input and output redirection (<, >, >>)
+- Supports a single pipe between two commands (cmd1 | cmd2)
+- Implements signal handling for SIGINT and SIGCHLD
+- Logs external commands to myshell.log using write()
+- Uses dynamic memory (malloc/free) with no leaks under Valgrind
+- Organized as a multi‑file project with a Makefile
 
 ## Build Instructions
-In order to build this program, Linux and GCC are needed. To build the shell run the make command. Once ran, it will compile all source files and produce myshell.
+This project requires Linux and GCC. To build the shell, use the command:
 
+```bash
+make
+```
+
+This will compile all source files and produce the myshell executable.
 ## Run Instructions
-Our shell can be ran by running the ./myshell executable through the project directory.
+To start the shell interactively:
+
+./myshell
+
+The shell displays the prompt:
+
+myshell>
+
+## Project Structure
+- src/
+  - main.c
+  - parse.c
+  - execute.c
+  - builtin.c
+  - signals.c
+  - logger.c
+- include/
+  - parse.h
+  - execute.h
+  - builtin.h
+  - signals.h
+  - logger.h
+- Makefile
+- README.md
 
 ## Sample Commands
-ls
-ls -1
-grep main *.c
-sleep 3 &
-echo hello > out.txt
-cat < out.txt
-echo "one two three" | wc -w
-cd /tmp
-exit
+- ls
+- ls -l
+- grep char include/parse.h
+- sleep 3 &
+- sleep 1
+- echo hello > out.txt
+- cat < out.txt
+- echo "one two three" | wc -w
+- echo "one two three" | wc -l
+- cd /tmp
+- pwd
+- exit
 
 ## Limitations 
-Only can handle a single pipe. No support for command history or tab completion. No support for quoting or environment variable expansion. Not intended to replace Bash.
+The shell can only handle a single pipe between two commands, and it does not support things like command history or tab completion. It does not implement handling quoting or environment variable expansion. Overall, this shell is a minimal course project and not a full Bash replacement.
+
+
 

@@ -1,4 +1,4 @@
-# myshell-project
+# myshell
 **Authors:** Manheet Kaur Virk,
           Dapinderdeep Kaur,
         Jayla Porter
